@@ -631,6 +631,17 @@ class Win32Window : Window {
         return res;
     }
 
+    override void demandAttention()
+    {
+        FLASHWINFO info;
+        info.cbSize = info.sizeof;
+        info.hwnd = _hwnd;
+        info.dwFlags = FLASHW_TRAY;
+        info.uCount = 1;
+
+        FlashWindowEx(&info);
+    }
+
     void onCreate() {
         Log.d("Window onCreate");
         _platform.onWindowCreated(_hwnd, this);

@@ -429,6 +429,8 @@ class Window : CustomEventTarget {
     /// set window rectangle
     bool moveAndResizeWindow(Rect rc, bool activate = false) { return setWindowState(WindowState.unspecified, activate, rc); }
 
+    void demandAttention() {}
+
     /// centers window on parent window, do nothing if there is no parent window
     void centerOnParentWindow() {
         if (parentWindow) {
